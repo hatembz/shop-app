@@ -13,6 +13,7 @@ class ShopAppLogingCubit extends Cubit<ShopAppLoginState> {
   ShopAppLogingCubit() : super(ShopappInitial());
   static ShopAppLogingCubit get(context) => BlocProvider.of(context);
   LoginModel? loginmodel;
+  // ignore: non_constant_identifier_names
   void UserLogin({
     required email,
     required password,
@@ -23,7 +24,6 @@ class ShopAppLogingCubit extends Cubit<ShopAppLoginState> {
       'password': password,
     }).then((value) {
       loginmodel = LoginModel.fromjson(value.data);
-      print(loginmodel!.message);
       emit(ShoppingloginSuccesState(loginmodel!));
     }).catchError((error) {
       print(error.toString());

@@ -5,6 +5,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shop/cubit/login_cubit/shopapplogin_cubit.dart';
 import 'package:shop/network/cache_helper.dart';
 import 'package:shop/screens/shop_layout.dart';
+import 'package:shop/shared/constants.dart';
 import 'package:shop/themes/colors.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -20,6 +21,7 @@ class LoginScreen extends StatelessWidget {
             CacheHelper.setData(
                     key: 'token', data: state.loginmodel.data!.token)
                 .then((value) {
+              token = CacheHelper.getData(key: 'token');
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const ShopLayout()));
             });
