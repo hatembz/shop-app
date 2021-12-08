@@ -42,7 +42,7 @@ class ShopCubit extends Cubit<ShopcubitState> {
           element.id: element.inFavorites,
         });
       }
-      print(favorites.toString());
+      // print(favorites.toString());
       emit(ShopSuccesHomePageState());
     }).catchError((error) {
       print(error.toString());
@@ -77,8 +77,8 @@ class ShopCubit extends Cubit<ShopcubitState> {
       },
     ).then((value) {
       changeFavoritesModel = ChangeFavoritesModel.fromJson(value.data);
-      print(token);
-      print(value.data);
+      // print(token);
+      // print(value.data);
       if (changeFavoritesModel!.status == false) {
         favorites[productId] = !(favorites[productId] ?? false);
       } else {
@@ -94,12 +94,12 @@ class ShopCubit extends Cubit<ShopcubitState> {
   FavoritesModel? favModel;
   void getfavoritesData() {
     emit(ShopLoadingGetFavoritesState());
-
     DioHelper.getData(
       url: FAVORITES,
       token: token,
     ).then((value) {
       favModel = FavoritesModel.fromJson(value.data);
+      print(value.data.toString());
       emit(ShopSuccesfavoritesPageState());
     }).catchError((error) {
       print(error.toString());

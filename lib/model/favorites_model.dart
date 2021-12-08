@@ -27,9 +27,9 @@ class Data {
   Data.fromJson(Map<String, dynamic> json) {
     currentPage = json['current_page'];
     if (json['data'] != null) {
-      List<FavoritesData> data = [];
+      data = [];
       json['data'].forEach((v) {
-        data.add(FavoritesData.fromJson(v));
+        data!.add(FavoritesData.fromJson(v));
       });
     }
     firstPageUrl = json['first_page_url'];
@@ -61,9 +61,9 @@ class Product {
   num? price;
   num? oldPrice;
   int? discount;
-  String? image;
-  String? name;
-  String? description;
+  late String image;
+  late String name;
+  late String description;
 
   Product.fromJson(Map<String, dynamic> json) {
     id = json['id'];
