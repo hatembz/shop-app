@@ -32,3 +32,13 @@ class ShopLoadingGetFavoritesState extends ShopcubitState {}
 class ShopSuccesfavoritesPageState extends ShopcubitState {}
 
 class ShopErrorfavoritesPageState extends ShopcubitState {}
+
+class ShopLoadingGetUserDataState extends ShopcubitState {}
+
+class ShopSuccesGetUserDataState extends ShopcubitState {
+  final UserData model;
+
+  ShopSuccesGetUserDataState(this.model);
+}
+
+class ShopErrorGetUserDataState extends ShopcubitState {}
